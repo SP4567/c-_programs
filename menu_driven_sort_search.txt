@@ -1,0 +1,347 @@
+#include<iostream>
+using namespace std;
+class sorting
+{
+    int arr[10];int i,n;
+    public:
+    sorting()
+    {
+        n=0;
+    }
+    sorting(int size)
+    {
+        n=size;
+    }
+
+    int input()
+    {
+    cout<<"enter the size of the array:\n";
+    cin>>n;
+    cout<<"enter the elements in the array:\n";
+    for(i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    return 0;
+    }
+    int display()
+    {
+    cout<<"the original array is\n";
+    for(i=0;i<n;i++)
+    {
+        cout<<arr[i];
+    }
+     return 0;
+    }
+    int sort()
+    {
+        int choice;
+        while(choice!=4)
+        {
+            cout<<"1.selection_sort\n2.bubble_sort\n3.insertion_sort\n4.exit\n";
+            cout<<"enter your choice\n";
+            cin>>choice;
+            switch(choice)
+            {
+                  case 1: 
+                  {
+                  int selection_sort()
+                  {
+                    int p,j;
+                    for(i=0;i<n;i++)
+                    {
+                        p=i;
+                        for(j=i+1;j<n;j++)
+                        {
+                            if(arr[i]>arr[j])
+                            p=j;
+                        }
+                        int temporary=arr[i];
+                        arr[i]=arr[j];
+                        arr[j]=temporary;
+                    }
+                    cout<<"\nthe sorted array\n";
+                    for(i=0;i<n;i++)
+                    {
+                        cout<<arr[i];
+                    }
+                   return 0;
+                   }
+                  break;
+                    case 2:
+                    {
+                    int bubble_sort()
+                    {
+                    for(i=0;i<n;i++)
+                    {
+                        for(int j=0;j<n-1-i;j++)
+                        {
+                            if(arr[j]<arr[j+1])
+                            {
+                                int temporary=arr[j+1];
+                                arr[j+1]=arr[j];
+                                arr[j]=temporary;
+                            }
+                        }
+                    }
+                    for(i=0;i<n;i++)
+                    {
+                    cout<<arr[i];
+                    return 0;
+                    }
+                    }
+                    }
+                    break;
+                    case 3:
+                    int insertion_sort()
+                    {
+                        for(i=0;i<n;i++)
+                        {
+                            for(int j=i;j>0&&arr[j-1]>arr[j];j--)
+                            {
+                                int temporary=arr[j];
+                                arr[j]=arr[j-1];
+                                arr[j-1]=temporary;
+                            }
+                        }
+                          for(i=0;i<n;i++)
+                        {
+                         cout<<arr[i];
+                         return 0;
+                        }
+                    }
+                    break;
+                    case 4:
+                    int mergesort()
+                    {
+                        for(i=0;i<n;i++)
+                        {
+                             for(size=1;size<n;size=size*2)
+                        {
+                             l1=0;
+                              k=0;
+                            while(l1+size<n)
+                        {
+                          h1=l1+size-1;
+                          l2=h1+1;
+                            h2=l2+size-1;
+                          if(h2>=n)
+                           h2=n-1;
+                          i=l1;
+                          j=l2;
+                        while(i<=h1&&j<=h2)
+                        {
+                        if(a[i]<=a[j])
+                        temp[k++]=a[i++];
+                           else
+                        temp[k++]=a[i++];
+                       }
+                       while(i<=h1)
+                         temp[k++]=a[i++];
+                         while(j<=h2)
+                         temp[k++]=a[j++];
+                        l1=h2+1;
+                        }
+                    for(i=l1;k<n;i++)
+                    temp[k++]=a[i];
+                   for(i=0;i<n;i++)
+                   a[i]=temp[i];
+                   printf("\nsize= %d\n Elements are :  ",size);
+                  for(i=0;i<n;i++)
+                   printf("%d",a[i]);
+                  }
+                  printf("\nSorted array is: \n");
+                  for(i=0;i<n;i++)
+                  printf(" %d",a[i]);
+                   return 0;
+                    }
+                }
+            }
+        }
+    return 0;
+    }
+    case 5:
+    {
+    int linear_search()
+    {
+    int arr[5],i,val,flag;
+    flag=0;
+    cout<<"\nenter the elements in the array\n";
+    for(i=0;i<5;i++)
+    {
+        cin>>arr[i];
+    }
+    cout<<"\nthe array is\n";
+    for(i=0;i<5;i++)
+    {
+        cout<<arr[i];
+    }
+    cout<<"\nenter the value to be searched\n";
+    cin>>val;
+    for(i=0;i<5;i++)
+    {
+        if(val==arr[i])
+        {
+        flag++; 
+        }
+        else{       
+        cout<<flag;
+        }
+    }
+    return 0;
+    }
+    }break;
+    case 6:
+    {
+    int binary_search()
+    {
+    int arr1[5],i,front,end,val,mid;
+    cout<<"\nenter the elemment in the array\n";
+    for(i=0;i<5;i++)
+    {
+        cin>>arr1[i];
+    }
+    cout<<"\nthe original array is\n";
+    for(i=0;i<5;i++)
+    {
+        cout<<arr1[i];
+    }
+    cout<<"\nenter the value to be searched\n";
+    cin>>val;
+    for(i=0;i<5;i++)
+    {
+        mid=(front+end)/2;
+        if(arr1[mid]==val)
+        {
+            cout<<" "<<mid;
+        }
+        if(val>arr1[mid])
+        {
+            front=mid+1;
+        }
+        else
+        {
+            end=mid-1;
+        }
+    }
+    return 0;
+    }
+    }break;
+    case 7:
+    {
+    int front_mid_end_searching()
+    {
+        int arr2[5],i,lb,ub,val,location,flag;
+        lb=0,ub=5;
+        int get_data()
+        {
+            cout<<"\nenter the elements in the array\n";
+            for(i=0;i<5;i++)
+            {
+                cin>>arr2[i];
+            }
+            cout<<"\nthe original array is\n";
+            for(i=0;i<5;i++)
+            {
+                cout<<arr[i];
+            }
+        return 0;
+        }
+        int search()
+        {
+            cout<<"\nenter the value to be searched\n";
+            cin>>val;
+            if(arr2[0]==val)
+            {
+                flag++;
+                location=0;
+                cout<<location;
+            }
+            else if (arr2[5]==val)
+            {
+                flag++;
+                location=5;
+                cout<<location;
+            }
+            else if (arr[mid]==val)
+            {
+                flag++;
+                location=mid;
+                cout<<location;
+            }
+            else
+            {
+                lb++;
+                ub--;
+                if(flag==0)
+                while(lb!=ub&&ub>0&&lb<5)
+                {
+                     if((lb-1)==0)
+                      u=mid-1;
+                    if(arr2[lb]==val)
+                    {
+                        flag++;
+                        location=lb;
+                    }
+                    else if (arr2[ub]==val)
+                    {
+                        flag++;
+                        location=ub;
+                    }
+                     lb++;
+                     ub--;
+                }
+            }
+                if(flag==0)
+                {
+                while(lb!=ub && lb!=mid && ub>=0 && lb<=4)
+                {
+                    if((ub+1)==value)
+                    lb=mid+1;
+                    if(arr2[lb]==value)
+                    {
+                        location=lb;
+                        flag=1;
+                        return;
+                    }
+                    else if(arr2[ub]==value)
+                    {
+                        location=ub;
+                        flag=1;
+                        return;
+                    }
+                    lb++;
+                    ub--;
+                }
+
+            }
+        }
+        int display()
+        {
+        if(flag==0)
+        {
+        cout<<"Value not found"<<endl; 
+        Beep(1000,800);
+        }
+        else
+        {
+            cout<<"value found at:"<<(location+1);
+            Beep(5000,800);
+            Beep(1000,800);
+        }   
+        return 0;
+        }
+    }
+}break;
+};           
+int main()
+{
+    sorting suyash;
+    suyash.input();
+    suyash.display();
+    suyash.sort();
+    suyash.linear_search();
+    suyash.binary_search();
+    suyash.front_mid_end_searching();
+    return 0;
+}
